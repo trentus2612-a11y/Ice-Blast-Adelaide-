@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ice Blast Adelaide — testing the market</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#000;--ice:#1BA3F2;--ice-bright:#7FD6FF;--ice-deep:#0A6DAE;
+    --steel:#C2CDD6;--steel-dim:#78868F;--white:#EEF6FB;
+    --rule:rgba(27,163,242,.28);--hair:rgba(120,140,155,.15);
+    --panel:rgba(120,160,190,.05);
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--black);color:var(--steel);
+    font:400 18px/1.7 Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+  .wrap{max-width:780px;margin:0 auto;padding:0 26px 84px}
+  @media (max-width:600px){.wrap{padding:0 18px 66px}body{font-size:16.5px}}
+
+  .hero{position:relative;text-align:center;padding:30px 0 6px;overflow:hidden}
+  .hero::before{content:"";position:absolute;left:50%;top:42%;width:140%;aspect-ratio:1;
+    transform:translate(-50%,-50%);
+    background:radial-gradient(circle,rgba(27,163,242,.19) 0%,rgba(27,163,242,.06) 40%,transparent 68%);
+    pointer-events:none}
+  .hero img{position:relative;display:block;width:100%;max-width:520px;margin:0 auto;height:auto;
+    opacity:0;animation:frostIn 1.05s cubic-bezier(.22,.78,.3,1) .05s forwards}
+  @keyframes frostIn{from{opacity:0;transform:scale(.97);filter:blur(9px)}to{opacity:1;transform:none;filter:none}}
+  @media (prefers-reduced-motion:reduce){.hero img{animation:none;opacity:1}}
+  .hero h1{position:relative;margin:6px auto 0;max-width:15ch;
+    font-family:"Saira Condensed",Impact,sans-serif;font-weight:700;
+    font-size:clamp(30px,6.6vw,50px);line-height:1.05;color:var(--white)}
+  .hero .lead{position:relative;margin:18px auto 0;max-width:46ch;font-size:clamp(16.5px,2.3vw,19px)}
+  .hero .lead b{color:var(--ice-bright);font-weight:600}
+
+  .chain{margin-top:40px;padding:24px 22px;background:var(--panel);
+    border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+    display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px 8px}
+  .chain .node{font-family:"Saira Condensed",Impact,sans-serif;font-weight:600;font-size:17px;
+    color:var(--white);padding:9px 17px;border:1px solid var(--rule)}
+  .chain .arw{color:var(--ice-bright);font-size:18px;line-height:1}
+
+  section{padding:58px 0 0}
+  h2{font-family:"Saira Condensed",Impact,sans-serif;font-weight:700;
+    font-size:clamp(25px,4.6vw,34px);line-height:1.07;color:var(--white);margin:0 0 10px}
+  h2 .frost{display:block;width:56px;height:3px;margin-bottom:14px;
+    background:linear-gradient(90deg,var(--ice-bright),var(--ice-deep))}
+  p{margin:0 0 16px;max-width:60ch}
+  .dim{color:var(--steel-dim);font-size:15px}
+
+  ol.steps{list-style:none;counter-reset:s;margin:34px 0 0;padding:0}
+  ol.steps li{counter-increment:s;position:relative;padding:0 0 36px 60px;
+    border-left:1px solid var(--hair);margin-left:19px}
+  ol.steps li:last-child{border-left-color:transparent;padding-bottom:0}
+  ol.steps li::before{content:counter(s);
+    position:absolute;left:-19px;top:0;width:38px;height:38px;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--black);border:1px solid var(--ice);color:var(--ice-bright);
+    font-family:"Saira Condensed",Impact,sans-serif;font-weight:700;font-size:19px}
+  ol.steps .t{font-family:"Saira Condensed",Impact,sans-serif;font-weight:600;
+    font-size:24px;color:var(--white);line-height:1.2;padding-top:4px;margin-bottom:9px}
+  ol.steps p{margin:0 0 13px;font-size:17px}
+  ol.steps p:last-child{margin-bottom:0}
+  ol.steps .rule{display:inline-block;margin-top:3px;padding:9px 15px;
+    background:rgba(27,163,242,.08);border-left:3px solid var(--ice);
+    font-size:16px;color:var(--white)}
+
+  /* takings */
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  table.takings{width:100%;border-collapse:collapse;margin-top:12px;font-size:17px;min-width:340px}
+  table.takings td{padding:13px 12px 13px 0;border-bottom:1px solid var(--hair)}
+  table.takings td:last-child{padding-right:0;text-align:right;white-space:nowrap;
+    color:var(--white);font-variant-numeric:tabular-nums}
+  table.takings td.sub{color:var(--steel-dim)}
+  table.takings tr.total td{border-bottom:none;border-top:1px solid var(--rule);padding-top:16px;
+    font-family:"Saira Condensed",Impact,sans-serif;font-size:22px;font-weight:600;
+    color:var(--ice-bright)}
+  table.takings tr.total td:first-child{color:var(--white)}
+
+  .scenarios{margin-top:30px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media (max-width:640px){.scenarios{grid-template-columns:1fr}}
+  .scenarios div{padding:22px 20px;border:1px solid var(--hair)}
+  .scenarios div:nth-child(2){border-color:var(--rule);background:rgba(27,163,242,.06)}
+  .sh{font-family:"Saira Condensed",Impact,sans-serif;font-weight:600;font-size:16px;
+    color:var(--steel-dim);margin-bottom:8px}
+  .scenarios div:nth-child(2) .sh{color:var(--ice-bright)}
+  .sv{font-family:"Saira Condensed",Impact,sans-serif;font-weight:700;
+    font-size:clamp(30px,6vw,38px);line-height:1;color:var(--white);
+    font-variant-numeric:tabular-nums;margin-bottom:10px}
+  .sd{font-size:14.5px;color:var(--steel-dim);line-height:1.5}
+
+  .verdict{margin-top:30px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media (max-width:620px){.verdict{grid-template-columns:1fr}}
+  .verdict div{padding:24px 22px;border:1px solid var(--hair)}
+  .verdict .yes{border-color:var(--rule);background:rgba(27,163,242,.06)}
+  .verdict .h{font-family:"Saira Condensed",Impact,sans-serif;font-weight:600;
+    font-size:21px;color:var(--white);margin-bottom:8px}
+  .verdict .yes .h{color:var(--ice-bright)}
+  .verdict p{margin:0;font-size:16px;max-width:none}
+
+  footer{margin-top:66px;padding-top:22px;border-top:1px solid var(--rule);
+    font-size:13.5px;color:var(--steel-dim)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <img src="../assets/logo.jpg" alt="Ice Blast Adelaide">
+  <h1>Testing the market</h1>
+  <p class="lead">Before anyone buys a machine, we find out if the work is actually there. <b>One Saturday tells us.</b></p>
+</header>
+
+<div class="chain">
+  <span class="node">Advertise</span><span class="arw">&rsaquo;</span>
+  <span class="node">Book a Saturday</span><span class="arw">&rsaquo;</span>
+  <span class="node">Hire the machine</span>
+</div>
+
+<section>
+  <h2><span class="frost"></span>The three steps</h2>
+
+  <ol class="steps">
+    <li>
+      <div class="t">Advertise</div>
+      <p>Site goes live, socials go up, and we get the word out. Posts in the 4WD and car club groups, the local Facebook pages, and phone calls to mechanics, transmission shops, restorers and detailers.</p>
+      <p>We pick a Saturday a few weeks out and push that date. Not "we're open", but "we're doing jobs on Saturday the 18th".</p>
+    </li>
+
+    <li>
+      <div class="t">Book people in for that Saturday</div>
+      <p>Every enquiry gets booked to the one date. We're stacking them deliberately, not spreading them out.</p>
+      <p>We take a deposit on the bigger jobs so nobody cancels the night before, and so the day is paid for before it starts.</p>
+      <p>We're not saying we own a machine and we're not saying we don't. It never comes up. Customers don't ask who owns the gear.</p>
+    </li>
+
+    <li>
+      <div class="t">Hire the machine for the day</div>
+      <p>Once the Saturday is full, we book the gear. Pick it up in the morning, run the jobs back to back, drop it back that afternoon.</p>
+      <p>One hire fee covers the whole day no matter how many jobs we do, which is exactly why we stacked them.</p>
+      <p class="rule">If the bookings don't come, we push the date. We never hire and hope.</p>
+    </li>
+  </ol>
+</section>
+
+<section>
+  <h2><span class="frost"></span>What a full Saturday is worth</h2>
+  <p>Using our own prices, at the low end of each range. Hire is an estimate until we get quotes.</p>
+
+  <div class="scroll">
+  <table class="takings">
+    <tr><td>4WD underbody</td><td>$2,200</td></tr>
+    <tr><td>Engine bay</td><td>$300</td></tr>
+    <tr><td>Engine bay</td><td>$300</td></tr>
+    <tr><td class="sub">Machine, compressor and ice for the day</td><td class="sub">&minus;$600</td></tr>
+    <tr class="total"><td>Left over</td><td>$2,200</td></tr>
+  </table>
+  </div>
+
+  <p class="dim" style="margin-top:18px">The underbody job alone covers the hire, so everything booked after it is nearly all margin. Before fuel and our own time, and split three ways that's a bit over $700 each for a Saturday.</p>
+
+  <div class="scenarios">
+    <div>
+      <div class="sh">Quiet day</div>
+      <div class="sv">$300</div>
+      <div class="sd">Three engine bays only. Covers the hire and a bit over. Not a great day, not a loss.</div>
+    </div>
+    <div>
+      <div class="sh">Decent day</div>
+      <div class="sv">$2,200</div>
+      <div class="sd">One underbody and two engine bays. The realistic target for a first Saturday.</div>
+    </div>
+    <div>
+      <div class="sh">Big day</div>
+      <div class="sv">$4,400</div>
+      <div class="sd">Two underbodies and a couple of bays, if we can physically fit them in.</div>
+    </div>
+  </div>
+  <p class="dim" style="margin-top:20px">Same $600 hire fee in all three. That's the whole reason we stack the bookings onto one date.</p>
+</section>
+
+<section>
+  <h2><span class="frost"></span>What the Saturday tells us</h2>
+  <p>This isn't really about the money from one day. It's a test, and it has two possible results.</p>
+
+  <div class="verdict">
+    <div class="yes">
+      <div class="h">The day fills up</div>
+      <p>The demand is real. We keep running Saturdays, the photos and reviews build up, and we work out when it's worth owning a machine instead of hiring one.</p>
+    </div>
+    <div>
+      <div class="h">It doesn't fill up</div>
+      <p>We found that out for the cost of some phone calls and an afternoon, instead of after signing for a machine and a workshop.</p>
+    </div>
+  </div>
+
+  <p class="dim" style="margin-top:26px">Either result is worth having. The only bad version is guessing.</p>
+</section>
+
+<footer>
+  Ice Blast Adelaide — market test plan.
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ice Blast Adelaide | Dry Ice Cleaning — Cars, 4x4s, Engines, Parts</title>
+<meta name="description" content="Dry ice cleaning in Golden Grove, Adelaide. Bring it to our workshop or we come to you. Build your own quote in seconds.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,500;0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --display:'Chakra Petch',system-ui,sans-serif;
+    --display-cond:'Chakra Petch',system-ui,sans-serif;
+    --ui:'Chakra Petch',system-ui,sans-serif;
+    --bg:#04070A;
+    --surface:#0A1017;
+    --surface-2:#0E151D;
+    --line:rgba(255,255,255,.07);
+    --line-ice:rgba(27,163,242,.26);
+    --ice:#1BA3F2;
+    --ice-bright:#7FD6FF;
+    --ice-deep:#0A6DAE;
+    --steel:#AEBCC7;
+    --steel-dim:#6C7A85;
+    --white:#EFF6FB;
+    --r:18px;
+    --r-sm:12px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    margin:0;background:var(--bg);color:var(--steel);
+    font:400 16.5px/1.65 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+    background-image:radial-gradient(900px 600px at 50% -80px, rgba(27,163,242,.13), transparent 70%);
+    background-repeat:no-repeat;
+  }
+  .wrap{max-width:1060px;margin:0 auto;padding:0 22px}
+  @media (max-width:600px){.wrap{padding:0 16px}}
+  a{color:var(--ice-bright)}
+  :focus-visible{outline:2px solid var(--ice-bright);outline-offset:3px}
+
+  /* ---------- nav ---------- */
+  nav{position:sticky;top:0;z-index:60;padding:12px 0}
+  nav .bar{
+    display:flex;align-items:center;gap:8px;
+    padding:9px 9px 9px 18px;
+    background:rgba(10,16,23,.82);
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border:1px solid var(--line);border-radius:999px;
+  }
+  .mark{
+    font-family:var(--display);font-weight:700;font-style:italic;font-size:21px;
+    letter-spacing:.01em;color:var(--white);text-decoration:none;margin-right:auto;white-space:nowrap;
+  }
+  .mark span{color:var(--ice-bright)}
+  nav a.link{
+    color:var(--steel);text-decoration:none;font-size:14.5px;
+    padding:8px 14px;border-radius:999px;
+  }
+  nav a.link:hover{color:var(--white);background:rgba(255,255,255,.05)}
+  @media (max-width:820px){nav a.link{display:none}}
+  .btn{
+    display:inline-block;text-decoration:none;cursor:pointer;
+    font-family:var(--ui);font-weight:600;font-size:16.5px;
+    letter-spacing:.015em;padding:11px 22px;border-radius:999px;
+    background:var(--ice);color:#00131F;border:1px solid var(--ice);
+    transition:background .15s ease,border-color .15s ease;
+  }
+  .btn:hover{background:var(--ice-bright);border-color:var(--ice-bright)}
+  .btn.ghost{background:transparent;color:var(--white);border-color:var(--line)}
+  .btn.ghost:hover{background:rgba(255,255,255,.05);border-color:var(--line-ice)}
+  nav .btn{padding:9px 18px;font-size:15.5px}
+
+  /* ---------- hero ---------- */
+  header.hero{text-align:center;padding:26px 0 0}
+  header.hero img.logo{
+    display:block;width:100%;max-width:470px;margin:0 auto;height:auto;
+    opacity:0;animation:frostIn 1s cubic-bezier(.22,.78,.3,1) .05s forwards;
+  }
+  @keyframes frostIn{from{opacity:0;transform:scale(.97);filter:blur(9px)}to{opacity:1;transform:none;filter:none}}
+  @media (prefers-reduced-motion:reduce){header.hero img.logo{animation:none;opacity:1}}
+  .hero h1{
+    font-family:var(--display);font-weight:700;
+    font-size:clamp(27px,5.1vw,45px);line-height:1.13;color:var(--white);
+    margin:12px auto 0;max-width:19ch;letter-spacing:-.005em;
+  }
+  .hero .lead{margin:16px auto 0;max-width:52ch;font-size:clamp(16px,2.1vw,18.5px)}
+  .hero .actions{display:flex;gap:11px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+
+  /* ---------- stat strip ---------- */
+  .stats{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:34px;
+  }
+  @media (max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+  .stat{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+    padding:18px 18px 16px;text-align:left;
+  }
+  .stat .v{
+    font-family:var(--display);font-weight:600;
+    font-size:23px;line-height:1.2;color:var(--white);
+  }
+  .stat .v em{font-style:normal;color:var(--ice-bright)}
+  .stat .k{font-size:13px;color:var(--steel-dim);margin-top:5px}
+
+  /* ---------- sections ---------- */
+  section{padding:76px 0 0}
+  .eyebrow{
+    display:inline-block;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--ice-bright);padding:5px 12px;border:1px solid var(--line-ice);
+    border-radius:999px;margin-bottom:14px;
+  }
+  h2{
+    font-family:var(--display);font-weight:700;
+    font-size:clamp(24px,3.8vw,34px);line-height:1.16;color:var(--white);margin:0 0 12px;letter-spacing:-.005em;
+  }
+  h3{font-family:var(--ui);font-weight:600;font-size:19px;color:var(--white);margin:0 0 6px}
+  p{margin:0 0 16px;max-width:66ch}
+  .dim{color:var(--steel-dim);font-size:14.5px}
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px}
+  @media (max-width:600px){.panel{padding:20px 16px}}
+
+  /* ---------- before / after ---------- */
+  .ba{
+    position:relative;margin:0;padding:0;overflow:hidden;
+    border:1px solid var(--line);border-radius:var(--r);background:var(--surface-2);
+    user-select:none;-webkit-user-select:none;touch-action:pan-y;cursor:ew-resize;
+  }
+  .ba.wide{aspect-ratio:644/330}
+  .ba.tall{aspect-ratio:644/385;margin-top:18px}
+  .ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .ba-before-wrap{position:absolute;inset:0;width:50%;overflow:hidden;border-right:2px solid var(--ice-bright)}
+  .ba-before-wrap::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.14);pointer-events:none}
+  .ba-handle{position:absolute;top:0;bottom:0;left:50%;width:44px;margin-left:-22px;z-index:3;
+    cursor:ew-resize;display:flex;align-items:center;justify-content:center}
+  .ba-handle::before{content:"";width:38px;height:38px;border-radius:50%;
+    background:var(--ice);border:2px solid var(--white);box-shadow:0 0 0 6px rgba(27,163,242,.18)}
+  .ba .lbl{position:absolute;bottom:46px;z-index:2;
+    font-family:var(--ui);font-weight:600;font-size:13px;
+    letter-spacing:.07em;text-transform:uppercase;padding:5px 12px;border-radius:999px;
+    background:rgba(4,7,10,.8);border:1px solid var(--line);color:var(--white);pointer-events:none}
+  .ba .lbl.b{left:14px}
+  .ba .lbl.a{right:14px;color:var(--ice-bright)}
+  .ba figcaption{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:36px 14px 13px;
+    background:linear-gradient(to top,rgba(4,7,10,.92),transparent);
+    font-size:14px;color:var(--steel);text-align:center;pointer-events:none}
+
+  /* ---------- configurator ---------- */
+  .cfg{display:grid;grid-template-columns:1.3fr .8fr;gap:16px;margin-top:26px;align-items:start}
+  @media (max-width:920px){.cfg{grid-template-columns:1fr}}
+
+  .cfg-stage{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+  @media (max-width:600px){.cfg-stage{padding:14px}}
+  .stage-top{display:flex;justify-content:center;margin-bottom:6px}
+  .stage-top .seg{margin-top:0;max-width:420px;width:100%}
+
+  .stage-svg{position:relative;
+    background:radial-gradient(60% 70% at 50% 62%, rgba(27,163,242,.10), transparent 70%)}
+  .stage-svg svg{width:100%;height:auto;display:block;overflow:visible}
+
+  .zone{cursor:pointer;fill:transparent;stroke:rgba(174,188,199,.34);stroke-width:2;
+    stroke-dasharray:7 6;transition:fill .2s ease,stroke .2s ease,stroke-width .2s ease}
+  .zone:hover{fill:rgba(27,163,242,.20);stroke:var(--ice);stroke-dasharray:none}
+  .zone.on{fill:rgba(27,163,242,.38);stroke:var(--ice-bright);stroke-width:2.5;stroke-dasharray:none;
+    filter:drop-shadow(0 0 10px rgba(27,163,242,.45))}
+  .zone:focus-visible{outline:none;stroke:var(--ice-bright);stroke-width:3;stroke-dasharray:none}
+  .wheel{pointer-events:none}
+
+  .tip{
+    position:absolute;z-index:5;pointer-events:none;opacity:0;transform:translate(-50%,-116%);
+    transition:opacity .14s ease;white-space:nowrap;
+    background:rgba(4,7,10,.95);border:1px solid var(--line-ice);border-radius:999px;
+    padding:7px 14px;font:600 13.5px var(--ui);color:var(--white);
+  }
+  .tip.show{opacity:1}
+  .tip b{color:var(--ice-bright);font-weight:700;margin-left:7px}
+
+  .stage-foot{display:flex;align-items:center;justify-content:space-between;
+    gap:12px;flex-wrap:wrap;margin-top:12px}
+  .hint{margin:0;font-size:13.5px;color:var(--steel-dim)}
+  .presets{display:flex;gap:7px;flex-wrap:wrap}
+  .mini{
+    font:500 13px Inter,sans-serif;padding:7px 13px;border-radius:999px;cursor:pointer;
+    background:transparent;border:1px solid var(--line);color:var(--steel);
+    transition:border-color .15s ease,color .15s ease}
+  .mini:hover{border-color:var(--line-ice);color:var(--white)}
+
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;
+    padding-top:18px;border-top:1px solid var(--line)}
+  .chip{
+    font:400 14px Inter,sans-serif;padding:9px 15px;border-radius:999px;cursor:pointer;
+    background:var(--surface-2);border:1px solid var(--line);color:var(--steel);
+    transition:border-color .15s ease,color .15s ease,background .15s ease}
+  .chip:hover{border-color:var(--line-ice);color:var(--white)}
+  .chip.on{background:rgba(27,163,242,.16);border-color:var(--ice);color:var(--white)}
+
+  .cond-wrap{margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
+  .cond-note{margin:10px 0 0;font-size:13px;color:var(--steel-dim)}
+  .seg{display:flex;gap:6px;background:var(--surface-2);border:1px solid var(--line);
+    border-radius:999px;padding:5px;margin-top:10px}
+  .seg button{flex:1;padding:9px 6px;border-radius:999px;border:none;cursor:pointer;
+    background:transparent;color:var(--steel);font:500 14px Inter,sans-serif;
+    transition:background .15s ease,color .15s ease}
+  .seg button:hover{color:var(--white)}
+  .seg button.on{background:var(--ice);color:#00131F;font-weight:600}
+
+  .cfg-sum{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+    padding:22px;display:flex;flex-direction:column;position:sticky;top:88px}
+  @media (max-width:920px){.cfg-sum{position:static}}
+  .sum-h{font-family:var(--display);font-weight:700;font-size:19px;color:var(--white);margin-bottom:4px}
+  .lines{margin:16px 0 0;flex:1;min-height:120px}
+  .line{display:flex;align-items:center;gap:10px;padding:11px 0;
+    border-bottom:1px solid var(--line);font-size:14.5px;
+    animation:lineIn .22s ease both}
+  @keyframes lineIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.line{animation:none}}
+  .line .nm{flex:1;min-width:0}
+  .line .am{color:var(--white);white-space:nowrap;font-variant-numeric:tabular-nums}
+  .line .x{width:22px;height:22px;flex:0 0 22px;border-radius:50%;cursor:pointer;
+    background:transparent;border:1px solid var(--line);color:var(--steel-dim);
+    font:400 14px/1 Inter,sans-serif;display:flex;align-items:center;justify-content:center}
+  .line .x:hover{border-color:#E0553E;color:#E0553E}
+  .line.empty{border-bottom:none;color:var(--steel-dim);padding:30px 0;
+    text-align:center;display:block;font-size:14px}
+  .totrow{margin-top:18px;padding-top:16px;border-top:1px solid var(--line-ice)}
+  .totrow .t{font-size:12.5px;color:var(--steel-dim);letter-spacing:.07em;text-transform:uppercase}
+  .totrow .n{font-family:var(--display);font-weight:700;
+    font-size:clamp(34px,7vw,46px);line-height:1.08;letter-spacing:-.01em;
+    color:var(--ice-bright);font-variant-numeric:tabular-nums;margin-top:4px}
+  .totrow .sub{font-size:13.5px;color:var(--steel-dim);margin-top:6px}
+  .totrow .meta{font-size:13px;color:var(--steel-dim);margin-top:9px;
+    padding-top:9px;border-top:1px solid var(--line)}
+  .totrow .meta:empty{display:none}
+  .cfg-sum .btn{margin-top:18px;text-align:center}
+  .cfg-sum .btn[disabled]{opacity:.38;pointer-events:none}
+
+  /* ---------- prices ---------- */
+  .prices{margin-top:8px}
+  .price-row{display:flex;align-items:baseline;gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+  .price-row:last-child{border-bottom:none}
+  .price-row .info{flex:1;min-width:0}
+  .price-row .name{font-family:var(--ui);font-weight:600;
+    font-size:19px;color:var(--white);line-height:1.25}
+  .price-row .desc{font-size:14px;color:var(--steel-dim);margin-top:3px;max-width:46ch}
+  .price-row .amt{font-family:var(--ui);font-weight:700;
+    font-size:clamp(18px,3.2vw,23px);color:var(--ice-bright);white-space:nowrap;
+    font-variant-numeric:tabular-nums}
+  .badge{display:inline-block;margin-left:8px;vertical-align:2px;border-radius:999px;
+    font:700 10.5px Inter,sans-serif;letter-spacing:.07em;text-transform:uppercase;
+    padding:3px 9px;background:var(--ice);color:#00131F}
+
+  /* ---------- three up ---------- */
+  .three{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+  @media (max-width:800px){.three{grid-template-columns:1fr}}
+  .three .panel p{margin:0;font-size:15px}
+
+  ul.ticks{margin:16px 0 0;padding:0;list-style:none;columns:2;column-gap:36px}
+  @media (max-width:600px){ul.ticks{columns:1}}
+  ul.ticks li{position:relative;padding-left:20px;margin-bottom:9px;break-inside:avoid;font-size:15.5px}
+  ul.ticks li::before{content:"";position:absolute;left:1px;top:.62em;width:6px;height:6px;
+    background:var(--ice);transform:rotate(45deg)}
+
+  /* ---------- offer ---------- */
+  .offer{margin-top:16px;text-align:center;
+    background:linear-gradient(180deg,rgba(27,163,242,.10),rgba(27,163,242,.03));
+    border:1px solid var(--line-ice)}
+  .offer h3{font-size:23px;margin-bottom:8px}
+  .offer p{margin:0 auto 18px;max-width:50ch}
+
+  /* ---------- form ---------- */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px}
+  @media (max-width:640px){.grid2{grid-template-columns:1fr}}
+  .field{display:flex;flex-direction:column}
+  .field.full{grid-column:1/-1}
+  label{font-size:13.5px;color:var(--steel-dim);margin-bottom:7px}
+  input,select,textarea{
+    font:400 16px/1.5 Inter,system-ui,sans-serif;color:var(--white);
+    background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-sm);
+    padding:12px 14px;width:100%;
+  }
+  input::placeholder,textarea::placeholder{color:#55626C}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--ice)}
+  select{appearance:none;-webkit-appearance:none;cursor:pointer;
+    background-image:linear-gradient(45deg,transparent 50%,var(--ice-bright) 50%),linear-gradient(135deg,var(--ice-bright) 50%,transparent 50%);
+    background-position:calc(100% - 20px) calc(50% + 1px),calc(100% - 14px) calc(50% + 1px);
+    background-size:6px 6px,6px 6px;background-repeat:no-repeat;padding-right:40px}
+  select option{background:#0A1017;color:var(--white)}
+  textarea{resize:vertical;min-height:100px}
+  input.err,select.err,textarea.err{border-color:#E0553E}
+  .send{margin-top:20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .formmsg{margin-top:14px;padding:12px 15px;border-radius:var(--r-sm);font-size:15px;display:none;
+    background:rgba(27,163,242,.1);border:1px solid var(--line-ice);color:var(--white)}
+  .formmsg.bad{background:rgba(224,85,62,.1);border-color:rgba(224,85,62,.4)}
+  .formmsg.show{display:block}
+
+  .contact{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+  @media (max-width:700px){.contact{grid-template-columns:1fr}}
+  .contact .panel{padding:20px}
+  .contact .k{font-size:12.5px;color:var(--steel-dim);margin-bottom:5px}
+  .contact .v{font-family:var(--ui);font-weight:600;font-size:19px;color:var(--white)}
+  .contact a{color:var(--white);text-decoration:none}
+  .contact a:hover{color:var(--ice-bright)}
+
+  /* ---------- faq ---------- */
+  details{border:1px solid var(--line);border-radius:var(--r-sm);
+    background:var(--surface);padding:16px 18px;margin-bottom:10px}
+  summary{font-family:var(--ui);font-weight:600;font-size:18px;
+    color:var(--white);cursor:pointer;list-style:none;display:flex;align-items:center;gap:13px}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:"";width:8px;height:8px;flex:0 0 8px;background:var(--ice);
+    transform:rotate(45deg);transition:transform .2s ease}
+  details[open] summary::before{transform:rotate(225deg)}
+  details p{margin:11px 0 0 21px;font-size:15.5px}
+
+  footer{margin-top:84px;padding:26px 0 60px;border-top:1px solid var(--line);
+    font-size:13.5px;color:var(--steel-dim)}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+  /* ---------- mobile bar ---------- */
+  .mobilebar{display:none}
+  @media (max-width:720px){
+    .mobilebar{display:grid;grid-template-columns:1fr 1fr;gap:8px;
+      position:fixed;left:12px;right:12px;bottom:12px;z-index:70;
+      padding:8px;border-radius:999px;border:1px solid var(--line);
+      background:rgba(10,16,23,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+    .mobilebar a{display:flex;align-items:center;justify-content:center;padding:13px 8px;
+      border-radius:999px;text-decoration:none;
+      font-family:var(--ui);font-weight:600;font-size:17px}
+    .mobilebar a.call{color:var(--white)}
+    .mobilebar a.quote{background:var(--ice);color:#00131F}
+    body{padding-bottom:78px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="bar">
+      <a class="mark" href="#top">ICE<span>BLAST</span></a>
+      <a class="link" href="#work">Results</a>
+      <a class="link" href="#build">Build a quote</a>
+      <a class="link" href="#prices">Prices</a>
+      <a class="link" href="#faq">FAQ</a>
+      <a class="btn" href="#quote">Get a quote</a>
+    </div>
+  </div>
+</nav>
+
+<div id="top"></div>
+
+<header class="hero">
+  <div class="wrap">
+    <img class="logo" src="assets/logo.jpg" alt="Ice Blast Adelaide — dry ice cleaning for cars, 4x4s, engines and parts">
+    <h1>Grease gone. Paint untouched.</h1>
+    <p class="lead">Dry ice cleaning in Golden Grove. Bring it to the workshop or we can come to you. Years of grime off engine bays, chassis and parts using frozen CO2 — no water, no chemicals, nothing abrasive.</p>
+    <div class="actions">
+      <a class="btn" href="#build">Build your quote</a>
+      <a class="btn ghost" href="sms:0400000000?&body=Hi%20Ice%20Blast%2C%20here's%20a%20photo%20of%20what%20I%20need%20cleaned%3A">Text us a photo</a>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="v">Golden Grove</div><div class="k">Workshop, plus mobile across Adelaide</div></div>
+      <div class="stat"><div class="v"><em>24 hr</em></div><div class="k">Quote back, every enquiry</div></div>
+      <div class="stat"><div class="v">Fixed price</div><div class="k">Locked in before we start</div></div>
+      <div class="stat"><div class="v">Fully insured</div><div class="k">Public liability covered</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="work">
+  <div class="wrap">
+    <span class="eyebrow">The results</span>
+    <h2>Drag the handle</h2>
+    <p>Same vehicle, same day, nothing but frozen CO2 in between.</p>
+
+    <figure class="ba wide" data-before="assets/results/engine-before.jpg" data-after="assets/results/engine-after.jpg">
+      <figcaption>Engine bay — dual cab ute, heavy build-up</figcaption>
+    </figure>
+    <figure class="ba tall" data-before="assets/results/under-before.jpg" data-after="assets/results/under-after.jpg">
+      <figcaption>Underbody and chassis — years of mud and road grime</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="build">
+  <div class="wrap">
+    <span class="eyebrow">Build a quote</span>
+    <h2>Tap what needs cleaning</h2>
+    <p>Pick the areas, tell us what you drive and how bad it is. You get a price straight away, no form, no waiting on a callback.</p>
+
+    <div class="cfg">
+      <div class="cfg-stage">
+        <div class="stage-top">
+          <div class="seg" id="vtype" role="group" aria-label="Vehicle type">
+            <button type="button" data-m="0.85">Small car</button>
+            <button type="button" data-m="1">Sedan / SUV</button>
+            <button type="button" data-m="1.15" class="on">4x4 / Ute</button>
+          </div>
+        </div>
+
+        <div class="stage-svg">
+          <svg viewBox="0 0 900 360" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="Select areas of the vehicle to clean">
+            <defs>
+              <linearGradient id="gBody" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#2C3A47"/>
+                <stop offset="42%" stop-color="#1B2733"/>
+                <stop offset="100%" stop-color="#0D141B"/>
+              </linearGradient>
+              <linearGradient id="gGlass" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#31485C"/>
+                <stop offset="48%" stop-color="#16222E"/>
+                <stop offset="100%" stop-color="#0B131A"/>
+              </linearGradient>
+              <linearGradient id="gRim" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#5A6875"/>
+                <stop offset="50%" stop-color="#2B3540"/>
+                <stop offset="100%" stop-color="#46545F"/>
+              </linearGradient>
+              <linearGradient id="gTyre" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#1A222A"/>
+                <stop offset="100%" stop-color="#090D11"/>
+              </linearGradient>
+              <linearGradient id="gShine" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#7FD6FF" stop-opacity="0"/>
+                <stop offset="45%" stop-color="#9FE2FF" stop-opacity=".5"/>
+                <stop offset="100%" stop-color="#7FD6FF" stop-opacity="0"/>
+              </linearGradient>
+              <radialGradient id="gShadow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#000" stop-opacity=".78"/>
+                <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+
+            <!-- ground shadow -->
+            <ellipse cx="480" cy="326" rx="360" ry="20" fill="url(#gShadow)"/>
+            <line x1="90" y1="322" x2="880" y2="322" stroke="rgba(174,188,199,.14)" stroke-width="1.5"/>
+
+            <!-- body silhouette -->
+            <path d="M100 238 L100 140 L372 140 L372 80 Q374 70 386 70 L600 70
+                     Q614 70 622 78 L668 132 L828 132 Q848 132 856 146 L866 186
+                     Q870 196 870 210 L870 238 L772 238 A72 72 0 0 0 628 238
+                     L272 238 A72 72 0 0 0 128 238 Z"
+                  fill="url(#gBody)" stroke="rgba(174,188,199,.34)" stroke-width="2" stroke-linejoin="round"/>
+
+            <!-- shoulder highlight -->
+            <path d="M108 150 L370 150 M380 82 L604 82" stroke="rgba(190,208,222,.22)" stroke-width="2" fill="none"/>
+            <path d="M676 140 L826 140" stroke="rgba(190,208,222,.18)" stroke-width="2" fill="none"/>
+
+            <!-- glass -->
+            <path d="M388 84 L388 130 L462 130 L462 84 Z" fill="url(#gGlass)" stroke="rgba(174,188,199,.26)" stroke-width="1.5"/>
+            <path d="M474 84 L474 130 L556 130 L556 84 Z" fill="url(#gGlass)" stroke="rgba(174,188,199,.26)" stroke-width="1.5"/>
+            <path d="M568 84 L568 130 L600 130 Q612 130 618 136 L640 130 L600 84 Z" fill="url(#gGlass)" stroke="rgba(174,188,199,.26)" stroke-width="1.5"/>
+            <path d="M392 88 L392 126 L404 126 L432 88 Z" fill="rgba(190,220,240,.09)"/>
+            <path d="M478 88 L478 126 L492 126 L522 88 Z" fill="rgba(190,220,240,.07)"/>
+
+            <!-- panel shut lines -->
+            <path d="M468 132 L468 236 M562 132 L562 236 M372 84 L372 236" stroke="rgba(10,16,23,.75)" stroke-width="2" fill="none"/>
+            <path d="M470 132 L470 236 M564 132 L564 236" stroke="rgba(190,208,222,.1)" stroke-width="1" fill="none"/>
+            <!-- tray shut line -->
+            <path d="M100 168 L372 168" stroke="rgba(10,16,23,.6)" stroke-width="1.5" fill="none"/>
+
+            <!-- door handles -->
+            <rect x="420" y="158" width="30" height="8" rx="4" fill="#3A4855" stroke="rgba(10,16,23,.6)"/>
+            <rect x="514" y="158" width="30" height="8" rx="4" fill="#3A4855" stroke="rgba(10,16,23,.6)"/>
+
+            <!-- mirror -->
+            <path d="M622 128 L650 120 L654 134 L626 140 Z" fill="#26323E" stroke="rgba(174,188,199,.3)" stroke-width="1.5" stroke-linejoin="round"/>
+
+            <!-- snorkel -->
+            <path d="M636 132 L636 66 Q636 56 648 56 L662 56 L662 74 L652 74 L652 132 Z"
+                  fill="#1A242E" stroke="rgba(174,188,199,.3)" stroke-width="1.5" stroke-linejoin="round"/>
+
+            <!-- roof light bar -->
+            <rect x="452" y="56" width="120" height="11" rx="3" fill="#16202A" stroke="rgba(174,188,199,.28)" stroke-width="1.5"/>
+            <rect x="460" y="59" width="104" height="4" rx="2" fill="url(#gShine)"/>
+            <path d="M470 67 L470 70 M556 67 L556 70" stroke="rgba(174,188,199,.4)" stroke-width="3"/>
+
+            <!-- headlight + bar -->
+            <path d="M832 146 L862 158 L862 176 L832 172 Z" fill="#20303C" stroke="rgba(174,188,199,.32)" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M836 152 L856 161 L856 171 L836 168 Z" fill="rgba(190,225,245,.3)"/>
+            <path d="M846 186 Q872 186 876 200 L876 226 Q876 234 866 234 L846 234 Z"
+                  fill="#131C25" stroke="rgba(174,188,199,.3)" stroke-width="1.5" stroke-linejoin="round"/>
+
+            <!-- side step -->
+            <rect x="300" y="240" width="300" height="12" rx="3" fill="#161F28" stroke="rgba(174,188,199,.26)" stroke-width="1.5"/>
+
+            <!-- arch flares -->
+            <path d="M120 238 A80 80 0 0 1 280 238" fill="none" stroke="#141D26" stroke-width="13" stroke-linecap="round"/>
+            <path d="M620 238 A80 80 0 0 1 780 238" fill="none" stroke="#141D26" stroke-width="13" stroke-linecap="round"/>
+
+            <!-- ============ SELECTABLE ZONES ============ -->
+            <g id="zones">
+              <path id="z-body" class="zone" tabindex="0" role="button" aria-label="Body panels and tray"
+                    d="M100 238 L100 140 L372 140 L372 80 Q374 70 386 70 L600 70 Q614 70 622 78
+                       L666 132 L666 238 L272 238 A72 72 0 0 0 128 238 Z"/>
+              <path id="z-engine" class="zone" tabindex="0" role="button" aria-label="Engine bay"
+                    d="M668 132 L828 132 Q848 132 856 146 L866 186 Q870 196 870 210 L870 236 L668 236 Z"/>
+              <path id="z-under" class="zone" tabindex="0" role="button" aria-label="Underbody and chassis"
+                    d="M292 240 L608 240 L608 286 L292 286 Z"/>
+              <path id="z-arch" class="zone" tabindex="0" role="button" aria-label="Wheel arches and suspension"
+                    d="M112 238 A88 88 0 0 1 288 238 L266 238 A66 66 0 0 0 134 238 Z
+                       M612 238 A88 88 0 0 1 788 238 L766 238 A66 66 0 0 0 634 238 Z"/>
+            </g>
+
+            <!-- wheels on top -->
+            <g class="wheel">
+              <circle cx="200" cy="256" r="64" fill="url(#gTyre)" stroke="rgba(174,188,199,.3)" stroke-width="2"/>
+              <circle cx="200" cy="256" r="52" fill="none" stroke="rgba(174,188,199,.18)" stroke-width="2"/>
+              <circle cx="200" cy="256" r="38" fill="url(#gRim)" stroke="rgba(174,188,199,.34)" stroke-width="2"/>
+              <circle cx="200" cy="256" r="11" fill="#1A242E" stroke="rgba(174,188,199,.3)" stroke-width="1.5"/>
+              <g stroke="rgba(15,22,30,.85)" stroke-width="7" stroke-linecap="round">
+                <path d="M200 256 L200 222"/><path d="M200 256 L232 268"/>
+                <path d="M200 256 L212 288"/><path d="M200 256 L188 288"/>
+                <path d="M200 256 L168 268"/>
+              </g>
+            </g>
+            <g class="wheel">
+              <circle cx="700" cy="256" r="64" fill="url(#gTyre)" stroke="rgba(174,188,199,.3)" stroke-width="2"/>
+              <circle cx="700" cy="256" r="52" fill="none" stroke="rgba(174,188,199,.18)" stroke-width="2"/>
+              <circle cx="700" cy="256" r="38" fill="url(#gRim)" stroke="rgba(174,188,199,.34)" stroke-width="2"/>
+              <circle cx="700" cy="256" r="11" fill="#1A242E" stroke="rgba(174,188,199,.3)" stroke-width="1.5"/>
+              <g stroke="rgba(15,22,30,.85)" stroke-width="7" stroke-linecap="round">
+                <path d="M700 256 L700 222"/><path d="M700 256 L732 268"/>
+                <path d="M700 256 L712 288"/><path d="M700 256 L688 288"/>
+                <path d="M700 256 L668 268"/>
+              </g>
+            </g>
+          </svg>
+          <div class="tip" id="tip" aria-hidden="true"></div>
+        </div>
+
+        <div class="stage-foot">
+          <p class="hint">Tap an area of the vehicle. Tap again to remove it.</p>
+          <div class="presets">
+            <button type="button" class="mini" data-preset="engine">Engine bay only</button>
+            <button type="button" class="mini" data-preset="full">The lot</button>
+            <button type="button" class="mini" id="clr" data-preset="clear">Clear</button>
+          </div>
+        </div>
+
+        <div class="chips" id="extra-chips">
+          <button type="button" class="chip" data-id="parts">Parts on the bench</button>
+          <button type="button" class="chip" data-id="coating">Underbody coating</button>
+          <button type="button" class="chip" data-id="mobile">Come to me</button>
+        </div>
+
+        <div class="cond-wrap">
+          <label>How bad is it?</label>
+          <div class="seg" id="cond" role="group" aria-label="Condition">
+            <button type="button" data-m="1" class="on">Light</button>
+            <button type="button" data-m="1.18">Moderate</button>
+            <button type="button" data-m="1.4">Heavy</button>
+          </div>
+          <p class="cond-note" id="cond-note">Garaged, washed regularly, no real build-up.</p>
+        </div>
+      </div>
+
+      <div class="cfg-sum">
+        <div class="sum-h">Your quote</div>
+        <div class="dim" style="font-size:13.5px">Estimate only. Fixed price once we see it.</div>
+
+        <div class="lines" id="lines"></div>
+
+        <div class="totrow">
+          <div class="t">Estimated total</div>
+          <div class="n" id="total">$0</div>
+          <div class="sub" id="totsub">Select an area to see a price</div>
+          <div class="meta" id="totmeta"></div>
+        </div>
+
+        <button type="button" class="btn" id="tofrm" disabled>Send this to us</button>
+        <p class="dim" style="font-size:12.5px;margin:12px 0 0;text-align:center">First ten bookings get 20% off</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="what">
+  <div class="wrap">
+    <span class="eyebrow">How it works</span>
+    <h2>Frozen CO2, not sand</h2>
+    <p>Compressed air fires frozen CO2 pellets at the surface. They hit, the cold shocks the grime loose, and the pellet turns straight to gas. The dirt drops off and the ice disappears.</p>
+
+    <div class="three">
+      <div class="panel"><h3>Nothing abrasive</h3><p>The pellet is softer than your steel and your paint. It lifts contamination without cutting into what's underneath.</p></div>
+      <div class="panel"><h3>No water</h3><p>Nothing to dry out, nothing trapped in a cavity rusting later. Safe around wiring, looms and connectors.</p></div>
+      <div class="panel"><h3>No mess left behind</h3><p>No sand, soda or grit to clean up. The only thing on the floor is the dirt that came off your vehicle.</p></div>
+    </div>
+
+    <div class="panel" style="margin-top:14px">
+      <h3>Two ways to get it done</h3>
+      <p style="margin:0">Drop the vehicle or the part to our Golden Grove workshop, which is the simplest option and how most jobs run. Or if it can't easily be moved, we load the gear and come to you.</p>
+      <ul class="ticks">
+        <li>Engine bays</li>
+        <li>4x4 underbodies and chassis</li>
+        <li>Classic and restoration projects</li>
+        <li>Diffs, housings and driveline</li>
+        <li>Bare shells and panels</li>
+        <li>Engine and gearbox parts</li>
+        <li>Workshop machinery</li>
+        <li>Trailers and campers</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="prices">
+  <div class="wrap">
+    <span class="eyebrow">Prices</span>
+    <h2>Real ranges, not "contact us"</h2>
+    <p>Where you land in the range comes down to condition. Once we've seen it, we lock in a fixed price.</p>
+
+    <div class="panel">
+      <div class="prices">
+        <div class="price-row"><div class="info"><div class="name">Engine bay <span class="badge">Most booked</span></div><div class="desc">Usually done in a morning. The easiest place to start.</div></div><div class="amt">$250 – $350</div></div>
+        <div class="price-row"><div class="info"><div class="name">Small vehicle, full clean</div><div class="desc">Engine bay, underbody and wheel arches.</div></div><div class="amt">$1,500 – $2,000</div></div>
+        <div class="price-row"><div class="info"><div class="name">Medium vehicle, full clean</div><div class="desc">Sedans, wagons, small SUVs.</div></div><div class="amt">$1,800 – $2,250</div></div>
+        <div class="price-row"><div class="info"><div class="name">4x4 or large vehicle, full clean</div><div class="desc">Utes, wagons and anything that's actually been off road.</div></div><div class="amt">$2,200 – $2,500</div></div>
+        <div class="price-row"><div class="info"><div class="name">Underbody protective coating</div><div class="desc">Add-on after blasting. Seals the chassis while it's clean.</div></div><div class="amt">+$1,200 – $1,500</div></div>
+        <div class="price-row"><div class="info"><div class="name">Parts cleaning</div><div class="desc">Blocks, heads, housings, brackets. Drop off or we collect.</div></div><div class="amt">From $150</div></div>
+        <div class="price-row"><div class="info"><div class="name">Workshop day rate</div><div class="desc">For trade, restorers and ongoing work.</div></div><div class="amt">$2,000 – $3,500</div></div>
+      </div>
+    </div>
+
+    <div class="panel offer">
+      <h3>Opening offer</h3>
+      <p>We're new and we want photos of good work. First ten bookings get 20% off, and you get the before and after shots to keep.</p>
+      <a class="btn" href="#quote">Claim a spot</a>
+    </div>
+  </div>
+</section>
+
+<section id="quote">
+  <div class="wrap">
+    <span class="eyebrow">Get a quote</span>
+    <h2>Tell us what you've got</h2>
+    <p>We'll come back to you within 24 hours with a price.</p>
+
+    <div class="panel">
+      <div class="grid2">
+        <div class="field"><label for="f-name">Your name</label><input id="f-name" type="text" autocomplete="name" placeholder="First and last"></div>
+        <div class="field"><label for="f-phone">Phone</label><input id="f-phone" type="tel" autocomplete="tel" placeholder="Best number to reach you"></div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" type="email" autocomplete="email" placeholder="you@email.com"></div>
+        <div class="field"><label for="f-suburb">Suburb</label><input id="f-suburb" type="text" placeholder="Where the vehicle is"></div>
+        <div class="field">
+          <label for="f-where">Workshop or mobile</label>
+          <select id="f-where">
+            <option>I'll bring it to the workshop</option>
+            <option>Come to me</option>
+            <option>Not sure, whatever suits</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-cond">How bad is it</label>
+          <select id="f-cond">
+            <option>Light — kept fairly clean</option>
+            <option>Moderate — normal daily driver</option>
+            <option>Heavy — years of build-up</option>
+            <option>No idea</option>
+          </select>
+        </div>
+        <div class="field full">
+          <label for="f-notes">What needs cleaning</label>
+          <textarea id="f-notes" placeholder="Vehicle make and model, what you're after, when you'd like it done."></textarea>
+        </div>
+      </div>
+      <div class="send">
+        <button type="button" class="btn" id="send">Send my details</button>
+        <p class="dim" style="margin:0">Opens your email with everything filled in. Prefer to text? <a href="sms:0400000000">Send us a photo instead</a>.</p>
+      </div>
+      <div class="formmsg" id="formmsg"></div>
+    </div>
+
+    <div class="contact">
+      <div class="panel"><div class="k">Call or text</div><div class="v"><a href="tel:0400000000">0400 000 000</a></div></div>
+      <div class="panel"><div class="k">Email</div><div class="v"><a href="mailto:hello@iceblastadelaide.com.au">hello@iceblastadelaide.com.au</a></div></div>
+      <div class="panel"><div class="k">Workshop</div><div class="v">Golden Grove, SA</div></div>
+    </div>
+    <p class="dim" style="margin-top:18px">Workshop jobs welcome from anywhere. For mobile work we regularly cover Golden Grove, Greenwith, Modbury, Tea Tree Gully, Salisbury, Gawler, Mawson Lakes and the Adelaide Hills. Further out is usually fine, just ask.</p>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <span class="eyebrow">FAQ</span>
+    <h2>Questions people ask</h2>
+
+    <details><summary>Will it damage my paint?</summary><p>No. The pellets are softer than your paint and your steel, so there's nothing there to abrade the surface. It's the same reason it's used on restoration work where the original finish has to survive.</p></details>
+    <details><summary>Is it safe around wiring and electrics?</summary><p>Yes. It's dry and non-conductive, so there's no water getting into looms, plugs or sensors. That's the main reason people choose it over pressure washing an engine bay.</p></details>
+    <details><summary>Do I bring it to you, or do you come to me?</summary><p>Whichever suits you. The workshop is in Golden Grove and that's the easiest option for most jobs. If the vehicle can't be moved or you'd rather it happened on site, we can come to you for a small travel charge. Smaller parts can just be dropped off.</p></details>
+    <details><summary>Will it take rust off?</summary><p>It removes surface grime, grease and loose scale, but it won't cut back heavy rust the way abrasive blasting does. If that's what your job needs we'll tell you and point you at the right option.</p></details>
+    <details><summary>How long does it take?</summary><p>An engine bay is usually a morning. A full 4x4 underbody is most of a day. Condition changes it more than size does, which is why we like to see it before locking in a price.</p></details>
+    <details><summary>Do I pay a deposit?</summary><p>For jobs over $1,500 we take a 20% deposit at booking. Everything else is paid on completion once you're happy with it.</p></details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>Ice Blast Adelaide — dry ice cleaning. Workshop in Golden Grove, SA. Mobile available.</div>
+    <div><a href="#quote">Get a quote</a></div>
+  </div>
+</footer>
+
+<div class="mobilebar">
+  <a class="call" href="tel:0400000000">Call us</a>
+  <a class="quote" href="#build">Build a quote</a>
+</div>
+
+<script>
+/* ---------- before / after ---------- */
+(function(){
+  Array.prototype.forEach.call(document.querySelectorAll('.ba'), function(ba){
+    var bSrc=(ba.getAttribute('data-before')||'').trim(), aSrc=(ba.getAttribute('data-after')||'').trim();
+    var cap=ba.querySelector('figcaption');
+    if(!bSrc||!aSrc) return;
+    var after=document.createElement('img'); after.src=aSrc; after.alt=(cap?cap.textContent:'')+' — after';
+    var wrap=document.createElement('div'); wrap.className='ba-before-wrap';
+    var before=document.createElement('img'); before.src=bSrc; before.alt=(cap?cap.textContent:'')+' — before';
+    wrap.appendChild(before);
+    var handle=document.createElement('div'); handle.className='ba-handle';
+    handle.setAttribute('role','slider'); handle.setAttribute('tabindex','0');
+    handle.setAttribute('aria-label','Compare before and after');
+    handle.setAttribute('aria-valuemin','0'); handle.setAttribute('aria-valuemax','100');
+    var lb=document.createElement('span'); lb.className='lbl b'; lb.textContent='Before';
+    var la=document.createElement('span'); la.className='lbl a'; la.textContent='After';
+    [after,wrap,handle,lb,la].forEach(function(n){ ba.insertBefore(n,cap); });
+
+    function setPct(p){p=Math.max(0,Math.min(100,p));wrap.style.width=p+'%';handle.style.left=p+'%';
+      handle.setAttribute('aria-valuenow',Math.round(p));}
+    function fromEvent(e){var r=ba.getBoundingClientRect();
+      var x=(e.touches?e.touches[0].clientX:e.clientX)-r.left; setPct(x/r.width*100);}
+    var dragging=false;
+    ba.addEventListener('mousedown',function(e){dragging=true;fromEvent(e);e.preventDefault();});
+    window.addEventListener('mousemove',function(e){if(dragging)fromEvent(e);});
+    window.addEventListener('mouseup',function(){dragging=false;});
+    ba.addEventListener('touchstart',function(e){dragging=true;fromEvent(e);},{passive:true});
+    ba.addEventListener('touchmove',function(e){if(dragging)fromEvent(e);},{passive:true});
+    window.addEventListener('touchend',function(){dragging=false;});
+    handle.addEventListener('keydown',function(e){var c=parseFloat(handle.style.left)||50;
+      if(e.key==='ArrowLeft'){setPct(c-4);e.preventDefault();}
+      if(e.key==='ArrowRight'){setPct(c+4);e.preventDefault();}});
+    setPct(50);
+  });
+})();
+
+/* ---------- quote configurator ---------- */
+(function(){
+  var ITEMS = {
+    'z-engine': {label:'Engine bay',                  price:230,  hrs:3, scale:true},
+    'z-under':  {label:'Underbody & chassis',         price:850,  hrs:5, scale:true},
+    'z-arch':   {label:'Wheel arches & suspension',   price:280,  hrs:2, scale:true},
+    'z-body':   {label:'Body panels & tray',          price:420,  hrs:4, scale:true},
+    'parts':    {label:'Parts on the bench',          price:150,  hrs:1, scale:false},
+    'coating':  {label:'Underbody protective coating',price:1200, hrs:3, scale:false},
+    'mobile':   {label:'We come to you',              price:150,  hrs:0, scale:false}
+  };
+  var CONDNOTE = {
+    '1':'Garaged, washed regularly, no real build-up.',
+    '1.18':'Normal daily driver. Some grease and road film.',
+    '1.4':'Years of caked-on mud, oil and grime. Expect a long day.'
+  };
+  var ZONES = ['z-engine','z-under','z-arch','z-body'];
+
+  var picked={}, cond=1, vtype=1.15, shown=0;
+  var linesEl=document.getElementById('lines'),
+      totEl=document.getElementById('total'),
+      subEl=document.getElementById('totsub'),
+      metaEl=document.getElementById('totmeta'),
+      btn=document.getElementById('tofrm'),
+      tip=document.getElementById('tip'),
+      stage=document.querySelector('.stage-svg');
+
+  function money(n){ return '$'+Math.round(n).toLocaleString('en-AU'); }
+  function amountFor(k){
+    var it=ITEMS[k];
+    return it.scale ? it.price*cond*vtype : it.price;
+  }
+  function node(id){ return document.getElementById(id) || document.querySelector('[data-id="'+id+'"]'); }
+
+  /* animated count-up on the total */
+  function countTo(target){
+    var start=shown, t0=null, dur=420;
+    if(Math.abs(target-start)<1){ totEl.textContent=money(target); shown=target; return; }
+    function step(ts){
+      if(!t0) t0=ts;
+      var p=Math.min(1,(ts-t0)/dur), e=1-Math.pow(1-p,3);
+      var v=start+(target-start)*e;
+      totEl.textContent=money(v);
+      if(p<1){ requestAnimationFrame(step); } else { shown=target; }
+    }
+    requestAnimationFrame(step);
+  }
+
+  function timeLabel(h){
+    if(h<=0) return '';
+    if(h<4) return 'About half a day on site';
+    if(h<8) return 'About a full day on site';
+    if(h<13) return 'Likely a day and a half';
+    return 'Two days or more';
+  }
+
+  function render(animate){
+    var keys=Object.keys(picked).filter(function(k){return picked[k];});
+    linesEl.innerHTML='';
+    if(!keys.length){
+      linesEl.innerHTML='<div class="line empty">Nothing selected yet.<br>Tap the vehicle to start.</div>';
+      countTo(0);
+      subEl.textContent='Select an area to see a price';
+      metaEl.textContent='';
+      btn.disabled=true;
+      return;
+    }
+    var total=0, hrs=0;
+    keys.forEach(function(k){
+      var it=ITEMS[k], amt=amountFor(k);
+      total+=amt; hrs+=it.scale ? it.hrs*cond : it.hrs;
+      var row=document.createElement('div'); row.className='line';
+      if(!animate) row.style.animation='none';
+      row.innerHTML='<span class="nm">'+it.label+'</span><span class="am">'+money(amt)+'</span>';
+      var x=document.createElement('button');
+      x.type='button'; x.className='x'; x.innerHTML='&times;';
+      x.setAttribute('aria-label','Remove '+it.label);
+      x.addEventListener('click',function(){ setPicked(k,false); });
+      row.appendChild(x);
+      linesEl.appendChild(row);
+    });
+    var low=Math.round(total*0.92/10)*10, high=Math.round(total*1.08/10)*10;
+    countTo(total);
+    subEl.textContent='Likely '+money(low)+' to '+money(high)+' depending on what we find';
+    var t=timeLabel(hrs);
+    metaEl.textContent = t ? t + ' · 20% deposit on jobs over $1,500' : '20% deposit on jobs over $1,500';
+    btn.disabled=false;
+  }
+
+  function setPicked(id,on){
+    picked[id]=on;
+    var n=node(id);
+    if(n){ n.classList.toggle('on',on); n.setAttribute('aria-pressed',String(!!on)); }
+    render(true);
+  }
+  function toggle(id){ setPicked(id,!picked[id]); }
+
+  /* zones */
+  Array.prototype.forEach.call(document.querySelectorAll('.zone'),function(z){
+    z.setAttribute('aria-pressed','false');
+    z.addEventListener('click',function(){ toggle(z.id); });
+    z.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggle(z.id); }
+    });
+    /* hover tooltip */
+    z.addEventListener('mousemove',function(e){
+      var it=ITEMS[z.id], r=stage.getBoundingClientRect();
+      tip.innerHTML=it.label+'<b>'+money(amountFor(z.id))+'</b>';
+      tip.style.left=(e.clientX-r.left)+'px';
+      tip.style.top=(e.clientY-r.top)+'px';
+      tip.classList.add('show');
+    });
+    z.addEventListener('mouseleave',function(){ tip.classList.remove('show'); });
+    z.addEventListener('focus',function(){
+      var it=ITEMS[z.id], zr=z.getBoundingClientRect(), r=stage.getBoundingClientRect();
+      tip.innerHTML=it.label+'<b>'+money(amountFor(z.id))+'</b>';
+      tip.style.left=(zr.left-r.left+zr.width/2)+'px';
+      tip.style.top=(zr.top-r.top+zr.height/2)+'px';
+      tip.classList.add('show');
+    });
+    z.addEventListener('blur',function(){ tip.classList.remove('show'); });
+  });
+
+  /* add-on chips */
+  Array.prototype.forEach.call(document.querySelectorAll('#extra-chips .chip'),function(c){
+    c.setAttribute('aria-pressed','false');
+    c.addEventListener('click',function(){ toggle(c.dataset.id); });
+  });
+
+  /* presets */
+  Array.prototype.forEach.call(document.querySelectorAll('.presets .mini'),function(b){
+    b.addEventListener('click',function(){
+      var p=b.dataset.preset;
+      Object.keys(ITEMS).forEach(function(k){ setPickedQuiet(k,false); });
+      if(p==='engine') setPickedQuiet('z-engine',true);
+      if(p==='full') ZONES.forEach(function(k){ setPickedQuiet(k,true); });
+      render(true);
+    });
+  });
+  function setPickedQuiet(id,on){
+    picked[id]=on;
+    var n=node(id);
+    if(n){ n.classList.toggle('on',on); n.setAttribute('aria-pressed',String(!!on)); }
+  }
+
+  /* segmented controls */
+  function wireSeg(sel,onPick){
+    var btns=document.querySelectorAll(sel+' button');
+    Array.prototype.forEach.call(btns,function(b){
+      b.addEventListener('click',function(){
+        Array.prototype.forEach.call(btns,function(x){x.classList.remove('on');});
+        b.classList.add('on');
+        onPick(b);
+        render(false);
+      });
+    });
+  }
+  wireSeg('#cond',function(b){
+    cond=parseFloat(b.dataset.m);
+    document.getElementById('cond-note').textContent=CONDNOTE[b.dataset.m]||'';
+  });
+  wireSeg('#vtype',function(b){ vtype=parseFloat(b.dataset.m); });
+
+  /* hand off to the enquiry form */
+  btn.addEventListener('click',function(){
+    var keys=Object.keys(picked).filter(function(k){return picked[k];});
+    var condTxt=document.querySelector('#cond button.on').textContent;
+    var vehTxt=document.querySelector('#vtype button.on').textContent;
+    var txt='Vehicle: '+vehTxt+'\n\nWhat I need cleaned:\n'
+      + keys.map(function(k){ return '- '+ITEMS[k].label+' ('+money(amountFor(k))+')'; }).join('\n')
+      + '\n\nCondition: '+condTxt
+      + '\nEstimate from your website: '+totEl.textContent+'\n';
+    document.getElementById('f-notes').value=txt;
+    var sel=document.getElementById('f-cond');
+    for(var i=0;i<sel.options.length;i++){
+      if(sel.options[i].text.indexOf(condTxt)===0){ sel.selectedIndex=i; break; }
+    }
+    if(picked['mobile']) document.getElementById('f-where').selectedIndex=1;
+    document.getElementById('quote').scrollIntoView({behavior:'smooth'});
+    setTimeout(function(){ document.getElementById('f-name').focus(); },450);
+  });
+
+  render(false);
+})();
+
+/* ---------- quote form ---------- */
+(function(){
+  var EMAIL='hello@iceblastadelaide.com.au';
+  function el(id){return document.getElementById(id);}
+  function val(id){return (el(id).value||'').trim();}
+  var msg=el('formmsg');
+  function say(t,bad){msg.textContent=t;msg.className='formmsg show'+(bad?' bad':'');}
+
+  el('send').addEventListener('click',function(){
+    var name=val('f-name'), phone=val('f-phone'), email=val('f-email');
+    ['f-name','f-phone','f-email'].forEach(function(id){el(id).classList.remove('err');});
+    var missing=[];
+    if(!name){missing.push('your name');el('f-name').classList.add('err');}
+    if(!phone&&!email){missing.push('a phone number or email');
+      el('f-phone').classList.add('err');el('f-email').classList.add('err');}
+    if(missing.length){
+      say('We just need '+missing.join(' and ')+' so we can get back to you.',true);
+      el(missing[0]==='your name'?'f-name':'f-phone').focus();
+      return;
+    }
+    var body='Name: '+name+'\n'
+      +'Phone: '+(phone||'Not given')+'\n'
+      +'Email: '+(email||'Not given')+'\n'
+      +'Suburb: '+(val('f-suburb')||'Not given')+'\n'
+      +'Workshop or mobile: '+val('f-where')+'\n'
+      +'Condition: '+val('f-cond')+'\n\n'
+      +(val('f-notes')||'No details given')+'\n';
+    window.location.href='mailto:'+EMAIL
+      +'?subject='+encodeURIComponent('Quote request — '+name)
+      +'&body='+encodeURIComponent(body);
+    say('Your email should be opening now. Hit send and we\u2019ll come back to you within 24 hours. If nothing opened, call or text us on 0400 000 000.');
+  });
+})();
+</script>
+</body>
+</html>
