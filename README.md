@@ -29,19 +29,13 @@ Then open http://localhost:8000
 | `docs/equipment-list.md` | Full equipment list with specs and supplier questions |
 | `CLAUDE.md` | Project context for Claude Code |
 
-## Not in the repo yet
+## The images are not in the repo yet
 
-These are referenced above but have not been added. Nothing breaks except the
-images, which will show as broken until the files land.
+Every HTML and Markdown file is in. The photos are not, so the logo and the
+before/after sliders show as broken until they land.
 
-- `assets/logo.jpg` and the four photos in `assets/results/`. See `assets/README.md` for the exact names and sizes
-- `docs/pitch.html`
-- `docs/startup-plan.html`
-- `docs/saturday-plan.html`
-- `docs/business-plan.md`
-- `docs/equipment-list.md`
-
-`docs/market-test.html` is in.
+Drop them into `assets/` using the exact filenames in `assets/README.md` and
+everything picks them up with no code changes.
 
 ## Before this goes live
 

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ice Blast Adelaide — starting without the big spend</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#000;--ice:#1BA3F2;--ice-bright:#7FD6FF;--ice-deep:#0A6DAE;
+    --steel:#C2CDD6;--steel-dim:#78868F;--white:#EEF6FB;
+    --rule:rgba(27,163,242,.28);--hair:rgba(120,140,155,.15);
+    --panel:rgba(120,160,190,.05);--warn:#E0553E;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--black);color:var(--steel);
+    font:400 17px/1.68 Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+  .wrap{max-width:860px;margin:0 auto;padding:0 26px 90px}
+  @media (max-width:600px){.wrap{padding:0 18px 70px}body{font-size:16px}}
+
+  /* hero */
+  .hero{position:relative;text-align:center;padding:30px 0 6px;overflow:hidden}
+  .hero::before{content:"";position:absolute;left:50%;top:42%;width:140%;aspect-ratio:1;
+    transform:translate(-50%,-50%);
+    background:radial-gradient(circle,rgba(27,163,242,.19) 0%,rgba(27,163,242,.06) 40%,transparent 68%);
+    pointer-events:none}
+  .hero img{position:relative;display:block;width:100%;max-width:560px;margin:0 auto;height:auto;
+    opacity:0;animation:frostIn 1.05s cubic-bezier(.22,.78,.3,1) .05s forwards}
+  @keyframes frostIn{from{opacity:0;transform:scale(.97);filter:blur(9px)}to{opacity:1;transform:none;filter:none}}
+  @media (prefers-reduced-motion:reduce){.hero img{animation:none;opacity:1}}
+  .hero h1{position:relative;margin:6px auto 0;max-width:20ch;
+    font-family:"Saira Condensed",Impact,sans-serif;font-weight:700;
+    font-size:clamp(28px,5.6vw,46px);line-height:1.06;color:var(--white)}
+  .hero .lead{position:relative;margin:16px auto 0;max-width:54ch;font-size:clamp(16px,2.2vw,18.5px)}
+  .hero .lead b{color:var(--ice-bright);font-weight:600}
+
+  section{padding:70px 0 0}
+  h2{font-family:"Saira Condensed",Impact,sans-serif;font-weight:700;
+    font-size:clamp(26px,4.6vw,38px);line-height:1.07;color:var(--white);margin:0 0 10px}
+  h2 .frost{display:block;width:58px;height:3px;margin-bottom:15px;
+    background:linear-gradient(90deg,var(--ice-bright),var(--ice-deep))}
+  h3{font-family:"Saira Condensed",Impact,sans-serif;font-weight:600;font-size:20px;
+    color:var(--ice-bright);margin:30px 0 6px}
+  p{margin:0 0 17px;max-width:68ch}
+  .dim{color:var(--steel-dim);font-size:14.5px}
+
+  /* steps */
+  ol.steps{list-style:none;counter-reset:s;margin:30px 0 0;padding:0}
+  ol.steps li{counter-increment:s;position:relative;padding:0 0 26px 62px;
+    border-left:1px solid var(--hair);margin-left:19px}
+  ol.steps li:last-child{border-left-color:transparent;padding-bottom:0}
+  ol.steps li::before{content:counter(s);
+    position:absolute;left:-19px;top:0;width:38px;height:38px;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--black);border:1px solid var(--ice);
+    color:var(--ice-bright);
+    font-family:"Saira Condensed",Impact,sans-serif;font-weight:700;font-size:19px}
+  ol.steps .t{font-family:"Saira Condensed",Impact,sans-serif;font-weight:600;
+    font-size:21px;color:var(--white);line-height:1.2;padding-top:6px;margin-bottom:6px}
+  ol.steps p{margin:0;font-size:16px}
+
+  /* tables */
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  table{width:100%;border-collapse:collapse;margin:14px 0 10px;font-size:15.5px;min-width:380px}
+  th{font-family:"Saira Condensed",Impact,sans-serif;font-weight:600;font-size:15px;
+    color:var(--ice-bright);text-align:left;padding:0 12px 8px 0;
+    border-bottom:1px solid var(--rule);white-space:nowrap}
+  td{padding:11px 12px 11px 0;border-bottom:1px solid var(--hair);vertical-align:top}
+  td:last-child,th:last-child{padding-right:0}
+  .num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--white)}
+  tr.total td{border-bottom:none;border-top:1px solid var(--rule);
+    padding-top:13px;color:var(--white);font-weight:600}
+
+  /* calculator */
+  .calc{margin:28px 0 0;padding:28px 26px 24px;background:var(--panel);
+    border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  @media (max-width:600px){.calc{padding:22px 18px}}
+  .calc-label{font-family:"Saira Condensed",Impact,sans-serif;font-size:17px;
+    font-weight:600;color:var(--white);margin-bottom:20px}
+  .row{margin-bottom:20px}
+  .row .k{display:flex;justify-content:space-between;font-size:14.5px;margin-bottom:9px}
+  .row .k span:last-child{color:var(--white);font-variant-numeric:tabular-nums;
+    font-family:"Saira Condensed",Impact,sans-serif;font-size:17px;font-weight:600}
+  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;margin:0;
+    background:linear-gradient(90deg,var(--ice-deep),var(--ice-bright));outline:none;cursor:pointer}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;
+    width:22px;height:22px;border-radius:50%;background:var(--white);
+    border:3px solid var(--ice);cursor:pointer}
+  input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;
+    background:var(--white);border:3px solid var(--ice);cursor:pointer}
+  input[type=range]:focus-visible{outline:2px solid var(--ice-bright);outline-offset:6px}
+  .result{margin-top:26px;padding-top:22px;border-top:1px solid var(--hair);
+    display:flex;flex-wrap:wrap;gap:24px 44px}
+  .result div{min-width:130px}
+  .result .v{font-family:"Saira Condensed",Impact,sans-serif;font-weight:700;
+    font-size:clamp(32px,6.5vw,44px);line-height:1;color:var(--ice-bright);
+    font-variant-numeric:tabular-nums}
+  .result .v.mid{color:var(--white)}
+  .result .kk{font-size:13.5px;color:var(--steel-dim);margin-top:7px}
+
+  /* callouts */
+  .note{margin-top:26px;padding:22px 24px;background:var(--panel);border-left:3px solid var(--ice)}
+  .note.flag{border-left-color:var(--warn);background:rgba(224,85,62,.07)}
+  .note p{margin:0}
+  .note p + p{margin-top:12px}
+  .note .h{font-family:"Saira Condensed",Impact,sans-serif;font-weight:600;
+    font-size:18px;color:var(--white);margin-bottom:7px}
+
+  ul.ticks{margin:16px 0 0;padding:0;list-style:none;max-width:68ch}
+  ul.ticks li{position:relative;padding-left:22px;margin-bottom:10px}
+  ul.ticks li::before{content:"";position:absolute;left:2px;top:.64em;
+    width:7px;height:7px;background:var(--ice);transform:rotate(45deg)}
+
+  .check{list-style:none;padding:0;margin:14px 0 0;max-width:68ch}
+  .check li{position:relative;padding:13px 0 13px 34px;border-bottom:1px solid var(--hair)}
+  .check li::before{content:"";position:absolute;left:0;top:16px;width:16px;height:16px;
+    border:1.5px solid var(--ice)}
+
+  footer{margin-top:78px;padding-top:24px;border-top:1px solid var(--rule);
+    font-size:13.5px;color:var(--steel-dim)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <img src="../assets/logo.jpg" alt="Ice Blast Adelaide">
+  <h1>How we start without dropping thirty grand</h1>
+  <p class="lead">Sell the jobs first. Hire the gear for the day. Let the customers' deposits pay for it. <b>Buy nothing until the work is real.</b></p>
+</header>
+
+<section>
+  <h2><span class="frost"></span>The problem with the obvious plan</h2>
+  <p>The machine that does everything on our website, properly, with Australian parts and service, is the Kärcher IB 7/40. Australian retail is $31,102 ex GST for the Classic and $40,822 for the Advanced.</p>
+  <p>Then the compressor. Kärcher wants a minimum of 8 bar at 140 CFM, which is a 30kW-plus three phase screw compressor, another $15,000 to $25,000, plus getting three phase into the shed.</p>
+  <p>Call it $50,000 to $60,000 before we've bought a single bin of dry ice, to service a market none of us have tested yet. We're not doing that.</p>
+  <p class="dim">The cheap eBay units around $3,000 to $6,000 are real, but they're carbon-cleaning machines. Roughly half the airflow of a commercial unit, a 7.5kg hopper when an engine takes about 15kg, a 3m hose, and no Australian service agent. Fine for engine bays, wrong for the $2,200 underbody job.</p>
+</section>
+
+<section>
+  <h2><span class="frost"></span>What we actually spend</h2>
+  <p>This is the whole unavoidable outlay. Everything else waits until there's revenue.</p>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Item</th><th class="num">Cost</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>ABN</td><td class="num">$0</td><td>Free</td></tr>
+      <tr><td>Business name (ASIC)</td><td class="num">$44</td><td>One year</td></tr>
+      <tr><td>Public liability insurance</td><td class="num">$600 – $1,500</td><td>The one line we don't cut. Before the first paid job, no exceptions</td></tr>
+      <tr><td>Phone tripod</td><td class="num">$30</td><td>For matched before and after shots. Highest return of anything on this list</td></tr>
+      <tr><td>Socials</td><td class="num">$0</td><td>Instagram and Facebook, where the car crowd already is</td></tr>
+      <tr class="total"><td>Total</td><td class="num">Under $1,600</td><td>About $530 each</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="dim">No machine. No compressor. No workshop lease. No vehicle.</p>
+</section>
+
+<section>
+  <h2><span class="frost"></span>The seven steps</h2>
+  <ol class="steps">
+    <li>
+      <div class="t">Register and insure</div>
+      <p>ABN, business name, public liability. Under $1,600 between the three of us and we can legally trade.</p>
+    </li>
+    <li>
+      <div class="t">Get hire quoted as a package</div>
+      <p>Ring Cold Jet Australia, who have the biggest rental fleet in the country and run a try-before-you-buy program with training included, and Cryonomic, who do rent-to-buy where part of the rental goes toward the purchase. Ask for a day and week rate covering the blaster, the compressor and the ice delivered. The headline machine rate never includes the other two. That number is our cost of goods.</p>
+    </li>
+    <li>
+      <div class="t">Sell before we have anything</div>
+      <p>Twenty phone calls. Local mechanics, transmission shops, restorers, detailers. Posts in the 4WD and car club groups. We're not pretending to own a machine, we're booking work for a specific date. Nobody asks whether the gear is ours.</p>
+    </li>
+    <li>
+      <div class="t">Take deposits</div>
+      <p>20% on anything over $1,500, which is already on the website. Three jobs booked with deposits means the hire is paid for before we pick the machine up. This is the mechanism that makes the whole thing cost us nothing.</p>
+    </li>
+    <li>
+      <div class="t">Hire only when the work is booked</div>
+      <p>Never on spec. Three or more jobs locked to a date, stacked into one day or one weekend so we pay for one hire period and run it flat out. Take the operator training on day one if it's offered.</p>
+    </li>
+    <li>
+      <div class="t">Shoot everything</div>
+      <p>Same spot, same light, before and after, every job. Those photos fill the gallery and sell the next twenty bookings. Ask every happy customer for a Google review before we leave. Photos and reviews are the two things we can't buy later.</p>
+    </li>
+    <li>
+      <div class="t">Buy when the hire bill annoys us</div>
+      <p>Keep running hire days until the rental cost clearly exceeds a monthly rent-to-buy payment. That's the buy signal, and it's a number not a feeling. If we never hit it, we found out for a few hundred dollars instead of thirty grand.</p>
+    </li>
+  </ol>
+</section>
+
+<section>
+  <h2><span class="frost"></span>Does a hire day actually pay?</h2>
+  <p>Drag the sliders. Hire figures overseas run roughly $200 to $500 a day for a small blaster, so we've allowed up to $900 to cover the compressor and ice on top.</p>
+
+  <div class="calc">
+    <div class="calc-label">One hire day, our numbers</div>
+
+    <div class="row">
+      <div class="k"><span>Hire for the day, all in</span><span id="v-hire">$600</span></div>
+      <input type="range" id="hire" min="200" max="900" step="50" value="600" aria-label="Hire cost for the day">
+    </div>
+
+    <div class="row">
+      <div class="k"><span>4WD or full vehicle jobs</span><span id="v-big">1</span></div>
+      <input type="range" id="big" min="0" max="4" step="1" value="1" aria-label="Number of large jobs">
+    </div>
+
+    <div class="row">
+      <div class="k"><span>Engine bays</span><span id="v-small">2</span></div>
+      <input type="range" id="small" min="0" max="8" step="1" value="2" aria-label="Number of engine bay jobs">
+    </div>
+
+    <div class="result">
+      <div><div class="v mid" id="rev">$2,800</div><div class="kk">taken on the day</div></div>
+      <div><div class="v" id="profit">$2,200</div><div class="kk">left after hire</div></div>
+      <div><div class="v mid" id="each">$733</div><div class="kk">each, split three ways</div></div>
+    </div>
+  </div>
+  <p class="dim" style="margin-top:20px">Using $2,200 for a 4WD and $300 for an engine bay, the low end of our own price list. Before fuel and our time. One underbody job on its own covers the day.</p>
+</section>
+
+<section>
+  <h2><span class="frost"></span>Two things we need to be straight about</h2>
+
+  <div class="note flag">
+    <div class="h">Don't sign a workshop lease yet</div>
+    <p>A unit in Golden Grove is a monthly commitment before we've proven anything, and it's the single biggest risk in this plan. For hire days we can work out of a shed, a mate's workshop, or on the customer's own site. The lease comes after the bookings justify it, not before.</p>
+  </div>
+
+  <div class="note flag">
+    <div class="h">Three of us is a lot for two jobs a weekend</div>
+    <p>At the pace we'll start at there isn't enough money to pay three people. That's fine if we all keep our day jobs and treat this as a side thing while it grows, but it needs saying out loud now rather than after someone quits expecting an income.</p>
+    <p>Agree upfront: nobody draws money until it's consistently there. Everything goes back into hire days, insurance and eventually the machine.</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="frost"></span>What we do this week</h2>
+  <ul class="check">
+    <li>Agree the split, and agree nobody draws money early</li>
+    <li>Register the ABN and business name</li>
+    <li>Get public liability quotes</li>
+    <li>Ring Cold Jet and Cryonomic for package hire rates and rent-to-buy terms</li>
+    <li>Find a dry ice supplier who delivers to the northeast, get per-kg plus freight and bin hire separately</li>
+    <li>Make the twenty phone calls. This is the one that tells us whether this is a business</li>
+    <li>Put the socials up and the site live</li>
+  </ul>
+  <p class="dim" style="margin-top:22px">The twenty calls cost nothing and take an afternoon. If fifteen of them say they'd use us regularly, we've got something. If most say no thanks, we've saved ourselves a fortune finding out.</p>
+</section>
+
+<footer>
+  Ice Blast Adelaide — working plan, not a final one. Hire rates are indicative overseas figures until we get Australian quotes. Machine prices are Australian retail as listed.
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var BIG = 2200, SMALL = 300;
+  function el(id){ return document.getElementById(id); }
+  function money(n){ return '$' + Math.round(n).toLocaleString('en-AU'); }
+  function update(){
+    var h = +el('hire').value, b = +el('big').value, s = +el('small').value;
+    el('v-hire').textContent = money(h);
+    el('v-big').textContent = b;
+    el('v-small').textContent = s;
+    var rev = b*BIG + s*SMALL;
+    var prof = rev - h;
+    el('rev').textContent = money(rev);
+    el('profit').textContent = money(prof);
+    el('profit').style.color = prof < 0 ? '#E0553E' : 'var(--ice-bright)';
+    el('each').textContent = money(prof/3);
+  }
+  ['hire','big','small'].forEach(function(id){
+    el(id).addEventListener('input', update);
+  });
+  update();
+})();
+</script>
+</body>
+</html>
