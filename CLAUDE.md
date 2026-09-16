@@ -35,6 +35,7 @@ Keep it this way unless there's a strong reason not to. The owners are not devel
 - Display type: Chakra Petch (square sans, tapered corners, matches the logo's angular cuts). Logo mark in the nav is italic to echo the wordmark.
 - Body type: Inter
 - Design direction: dashboard-style. Rounded panels, hairline borders, pill controls, one accent colour doing the work.
+- Buttons and selectable cards are tactile. They sit on a solid coloured edge drawn with `box-shadow:0 4px 0`, and on `:active` they translate down by the same amount and lose the shadow, so they physically press. Keep that on anything tappable.
 
 CSS custom properties are defined in `:root`. Use them rather than hardcoding colours.
 
@@ -44,25 +45,69 @@ Copy uses Australian spelling. Prices in AUD. Keep it that way.
 
 The tone is direct and plain. No marketing fluff, no em dashes.
 
-## The quote configurator
+## The quote builder
 
-The main interactive feature, in `<section id="build">`.
+The main interactive feature, in `<section id="build">`. It is a five step flow,
+not a single screen. Steps are `<div class="qstep">` elements inside `.qb-body`,
+shown one at a time by the `on` class. `goTo(i)` drives the progress bar, the
+step counter, the Back and Next buttons and the running total.
 
-An inline SVG side view of a dual-cab ute. Selectable areas are `<path class="zone">` elements with ids inside `<g id="zones">`. Everything else in the SVG is decorative and has `pointer-events:none` where it would block a zone.
+Steps: vehicle, areas, condition, extras, quote and contact details. The contact
+form is the last step, so the whole thing finishes in one place.
 
-Pricing lives in the `ITEMS` object in the configurator script:
+In step two the areas can be picked two ways, by tapping a `<path class="zone">`
+on the inline SVG ute or by tapping the matching card in `#q-areas`. They stay in
+sync through `syncAreas()`, keyed on the same id.
+
+**Zones must not overlap.** They are painted in DOM order, so the last one wins a
+shared pixel. Order is body, under, arch, engine. The wheel arch outer radius is
+86, deliberately small enough that the arch band does not reach the centre of the
+engine bay zone. Widening it again will make the engine bay untappable on a phone.
+
+### Pricing
+
+Pricing lives in the `ITEMS` object:
 
 ```js
-'z-engine': {label:'Engine bay', price:230, hrs:3, scale:true}
+'z-engine': {label:'Engine bay', price:250, hrs:3, cond:true, veh:false}
 ```
 
-`scale:true` means the price is multiplied by both the condition multiplier and the vehicle type multiplier. Add-ons (`parts`, `coating`, `mobile`) are `scale:false` and stay flat.
+`cond` means the condition multiplier applies, `veh` means the vehicle size
+multiplier applies. Add-ons (`parts`, `coating`, `mobile`) are flat.
 
 Multipliers:
-- Vehicle type: small car 0.85, sedan/SUV 1.0, 4x4/ute 1.15
+- Vehicle size: small car 0.85, sedan or SUV 1.0, 4x4 or ute 1.15
 - Condition: light 1.0, moderate 1.18, heavy 1.4
 
-**These numbers are tuned to land on the published price list in the Prices section.** If you change a base price or a multiplier, check the result still sits inside the advertised ranges. A 4x4 full clean on moderate should come out around $2,400 against the listed $2,200 to $2,500.
+**Engine bay does not scale with vehicle size.** That is deliberate. The published
+price list has one engine bay row with no vehicle distinction, so holding it flat
+makes the builder land on exactly $250, $295 and $350 for light, moderate and
+heavy, matching the advertised $250 to $350 at every vehicle size.
+
+**These numbers are tuned to the published price list in the Prices section.** The
+calibration point is a 4x4 full clean on moderate, which comes out at $2,398
+against the listed $2,200 to $2,500. Change a base price or a multiplier and
+check that still holds.
+
+Known and accepted: because the total is linear in the condition multiplier, a
+full clean on light sits under the bottom of the published range and on heavy
+sits over the top. Only the moderate column is calibrated. The published ranges
+cannot all be hit by one multiplicative model, so this is a pricing decision for
+the owners rather than a bug.
+
+### The opening offer
+
+`var OFFER=0.20;` in the builder script applies the advertised 20% off to every
+quote and shows it as its own line. When the first ten bookings are gone, set it
+to `0` and the line disappears on its own. Nothing else needs changing.
+
+### Sending
+
+There is still no backend. `submit()` validates, builds a plain text summary and
+opens a `mailto:` link. Because that silently fails on some mobile setups, the
+same text is also written into a read only textarea with a copy button, a text
+message link and a call link. That panel appears every time, not only on failure,
+so there is always a way through.
 
 ## Before/after sliders
 
@@ -78,9 +123,9 @@ Multipliers:
 
 **The before/after photos may be AI generated.** They came from a composite the owner supplied. They do not show work this business has done. They must be replaced with real job photos before the site goes public, otherwise the site misrepresents the business. This is not a cosmetic issue.
 
-**The quote form has no backend.** It builds a `mailto:` link and opens the user's mail client. It works without hosting but it is fragile, and on some mobile setups nothing happens. A real form endpoint (Formspree, Netlify Forms, or similar) would be the first worthwhile upgrade.
+**The quote form has no backend.** It builds a `mailto:` link and opens the user's mail client. It works without hosting but it is fragile, and on some mobile setups nothing happens. The copy and text fallback covers that, but a real form endpoint (Formspree, Netlify Forms, or similar) is still the first worthwhile upgrade.
 
-**The opening offer says first ten bookings get 20% off.** Someone needs to actually track that.
+**The opening offer says first ten bookings get 20% off.** Someone needs to actually track that. The builder applies it to every quote, so set `OFFER` to `0` once the ten are gone.
 
 ## Things not to do
 
@@ -88,3 +133,4 @@ Multipliers:
 - Do not use em dashes in copy
 - Do not replace Australian spelling
 - Do not add the before/after photos of other operators' work
+- Do not let the fixed `.mobilebar` cover the builder's Back and Next buttons. An IntersectionObserver hides it while the builder is on screen
