@@ -29,14 +29,6 @@ Then open http://localhost:8000
 | `docs/equipment-list.md` | Full equipment list with specs and supplier questions |
 | `CLAUDE.md` | Project context for Claude Code |
 
-## The images are not in the repo yet
-
-Every HTML and Markdown file is in. The photos are not, so the logo and the
-before/after sliders show as broken until they land.
-
-Drop them into `assets/` using the exact filenames in `assets/README.md` and
-everything picks them up with no code changes.
-
 ## Before this goes live
 
 - [ ] Replace the phone number. Search for `0400000000`
